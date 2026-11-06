@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Aarav Sharma",
+    "team": "Engineering",
+    "role": "Frontend Engineer",
+    "status": "Active",
+    "tasksCompleted": 18,
+    "hoursLogged": 142,
+    "sprint": "Sprint 24"
+  },
+  {
+    "id": 2,
+    "name": "Meera Iyer",
+    "team": "Design",
+    "role": "Product Designer",
+    "status": "Active",
+    "tasksCompleted": 12,
+    "hoursLogged": 118,
+    "sprint": "Sprint 24"
+  },
+  {
+    "id": 3,
+    "name": "Rohan Patel",
+    "team": "Engineering",
+    "role": "Backend Engineer",
+    "status": "Active",
+    "tasksCompleted": 15,
+    "hoursLogged": 156,
+    "sprint": "Sprint 24"
+  },
+  {
+    "id": 4,
+    "name": "Sara Khan",
+    "team": "Marketing",
+    "role": "Content Strategist",
+    "status": "On leave",
+    "tasksCompleted": 7,
+    "hoursLogged": 64,
+    "sprint": "Sprint 24"
+  },
+  {
+    "id": 5,
+    "name": "Daniel Osei",
+    "team": "Engineering",
+    "role": "QA Engineer",
+    "status": "Active",
+    "tasksCompleted": 21,
+    "hoursLogged": 131,
+    "sprint": "Sprint 24"
+  },
+  {
+    "id": 6,
+    "name": "Priya Nair",
+    "team": "Design",
+    "role": "UX Researcher",
+    "status": "Active",
+    "tasksCompleted": 9,
+    "hoursLogged": 97,
+    "sprint": "Sprint 24"
+  },
+  {
+    "id": 7,
+    "name": "Liam Carter",
+    "team": "Marketing",
+    "role": "Growth Manager",
+    "status": "Active",
+    "tasksCompleted": 11,
+    "hoursLogged": 109,
+    "sprint": "Sprint 24"
+  },
+  {
+    "id": 8,
+    "name": "Ana Silva",
+    "team": "Engineering",
+    "role": "DevOps Engineer",
+    "status": "Active",
+    "tasksCompleted": 14,
+    "hoursLogged": 150,
+    "sprint": "Sprint 24"
+  }
+]

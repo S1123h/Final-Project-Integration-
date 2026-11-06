@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Team Pulse — an accessible, responsive mini dashboard displaying team productivity data with filtering, sorting, and an SVG chart." />
+  <title>Team Pulse — Team productivity dashboard</title>
+  <link rel="stylesheet" href="styles.min.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='16' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="skip-link" href="#dashboard">Skip to dashboard</a>
+
+  <header class="app-header">
+    <div class="container header-inner">
+      <p class="brand">
+        <span class="brand-badge" aria-hidden="true">T</span>
+        Team Pulse
+      </p>
+      <p class="header-status" role="status" aria-live="polite" id="data-status">
+        Loading dashboard data…
+      </p>
+    </div>
+  </header>
+
+  <main id="dashboard" class="container" tabindex="-1">
+    <section class="intro" aria-labelledby="intro-title">
+      <h1 id="intro-title">Team productivity dashboard</h1>
+      <p>
+        Review team workload, completed tasks, and logged hours. Filter the
+        data, sort the table, and compare productivity across teams.
+      </p>
+    </section>
+
+    <!-- Summary metrics update dynamically and announce through a live region -->
+    <section class="metrics" aria-labelledby="metrics-title">
+      <h2 id="metrics-title" class="visually-hidden">Key metrics</h2>
+      <div class="metric-grid">
+        <article class="metric-card">
+          <h3>Team members</h3>
+          <p class="metric-value" id="metric-members">—</p>
+        </article>
+        <article class="metric-card">
+          <h3>Tasks completed</h3>
+          <p class="metric-value" id="metric-tasks">—</p>
+        </article>
+        <article class="metric-card">
+          <h3>Hours logged</h3>
+          <p class="metric-value" id="metric-hours">—</p>
+        </article>
+        <article class="metric-card">
+          <h3>Active members</h3>
+          <p class="metric-value" id="metric-active">—</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Chart is an accessible SVG with a text summary and data table alternative -->
+    <section class="panel chart-panel" aria-labelledby="chart-title">
+      <h2 id="chart-title">Tasks completed by team</h2>
+      <p id="chart-summary" class="chart-summary">
+        Chart data will appear after the dashboard loads.
+      </p>
+      <div id="chart-container" class="chart-container"></div>
+    </section>
+
+    <!-- Data controls and table -->
+    <section class="panel table-panel" aria-labelledby="table-title">
+      <div class="panel-heading">
+        <h2 id="table-title">Team members</h2>
+        <p id="table-summary" class="table-summary" role="status" aria-live="polite">
+          Loading team members…
+        </p>
+      </div>
+
+      <form class="controls" aria-describedby="table-summary">
+        <div class="control">
+          <label for="team-filter">Filter by team</label>
+          <select id="team-filter" name="team">
+            <option value="all">All teams</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Design">Design</option>
+            <option value="Marketing">Marketing</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="status-filter">Filter by status</label>
+          <select id="status-filter" name="status">
+            <option value="all">All statuses</option>
+            <option value="Active">Active</option>
+            <option value="On leave">On leave</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="search">Search by name or role</label>
+          <input id="search" name="search" type="search" placeholder="e.g. engineer" />
+        </div>
+
+        <button type="button" class="button" id="reset-controls">Reset filters</button>
+      </form>
+
+      <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="table-title">
+        <table class="data-table">
+          <caption>
+            Team member productivity. Select a column header to sort.
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col" aria-sort="none">
+                <button type="button" class="sort-button" data-sort="name">Name</button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button type="button" class="sort-button" data-sort="team">Team</button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button type="button" class="sort-button" data-sort="role">Role</button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button type="button" class="sort-button" data-sort="status">Status</button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button type="button" class="sort-button" data-sort="tasksCompleted">Tasks completed</button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button type="button" class="sort-button" data-sort="hoursLogged">Hours logged</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <tr>
+              <td colspan="6">Loading team data…</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="container">
+      <p>Team Pulse · Static JSON data · Responsive, accessible dashboard</p>
+    </div>
+  </footer>
+
+  <!-- Deferred script avoids blocking initial page rendering -->
+  <script src="script.min.js" defer></script>
+</body>
+</html>
